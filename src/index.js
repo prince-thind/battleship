@@ -2,7 +2,7 @@ import './style.css'
 import './components/styles/ship-selection.css'
 import './components/styles/start-menu.css'
 import shipSelection from './components/modules/ship-selection';
-import {state,setState} from './components/modules/state';
+import state from './components/modules/state';
 
 const shipForm=document.querySelector('#ship-form');
 const menuSection=document.querySelector('#start-menu');
@@ -13,7 +13,7 @@ shipForm.addEventListener('submit',storeShipInput);
 function storeShipInput(e){
     e.preventDefault();
     const shipNumber=e.target.ships.value;
-    setState('ships',shipNumber);
+    state.ships=shipNumber;
     renderSelectionScreen();
 }
 

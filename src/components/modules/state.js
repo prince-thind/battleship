@@ -1,7 +1,5 @@
 const state={
     ships:0,
+    structures:[],
 }
-function setState(key,value){
-    state[key]=value;
-}
-export {state,setState};
+export default state;

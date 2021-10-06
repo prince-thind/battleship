@@ -1,0 +1,14 @@
+.selection-text{
+    margin-top: 1rem;
+}
+.selection-grid{
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    width:50%;
+    margin:2rem auto;
+}
+.selection-element{
+    background-color: rgb(97, 97, 197);
+    border:2px solid black;
+    aspect-ratio: 1;
+}

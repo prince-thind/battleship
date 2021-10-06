@@ -1,5 +1,7 @@
 import './style.css'
+import './components/styles/ship-selection.css'
 import './components/styles/start-menu.css'
+import shipSelection from './components/modules/ship-selection';
 import {state,setState} from './components/modules/state';
 
 const shipForm=document.querySelector('#ship-form');
@@ -18,4 +20,5 @@ function storeShipInput(e){
 function renderSelectionScreen() {
     menuSection.classList.toggle('hidden');
     shipSelectionSection.classList.toggle('hidden');
+    shipSelection();
 }

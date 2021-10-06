@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+.hidden{
+  visibility: hidden;
+}
 body {
   color: white;
   background: linear-gradient(hsl(215, 50%, 25%), hsl(215, 50%, 5%));

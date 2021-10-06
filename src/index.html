@@ -13,14 +13,17 @@
         <h1 class="heading">Battleship</h1>
     </header>
     <main id="main" class="main">
-        <section class="start-menu">
+        <section class="start-menu" id="start-menu">
             <form id="ship-form" class="ship-form">
                 <label for="ship-numbers">Enter Fleet Size
                 </label>
-                <input type="number" id="ship-numbers" min="3" max="9" value="4">
+                <input type="number" id="ship-numbers" min="3" max="9" value="4" name="ships">
 
                 <button>Start</button>
             </form>
+        </section>
+        <section class="ship-selection-menu hidden" id="ship-selection-menu">
+            <p>select your ship!!</p>
         </section>
     </main>
     <footer class="footer">

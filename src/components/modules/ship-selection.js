@@ -1,5 +1,6 @@
 import state from './state';
 import generateShips from './generateShips';
+import { renderMainScreen } from '../..';
 
 function shipSelection() {
   const grid = document.querySelector('#selection-grid');
@@ -10,6 +11,7 @@ function shipSelection() {
       element.className = 'selection-element';
       element.id = 'E' + i + j;
       element.addEventListener('mouseenter', highlight);
+      element.addEventListener('click', highlight);
       element.addEventListener('mouseleave', unhighlight);
       grid.append(element);
     }
@@ -21,27 +23,36 @@ function shipSelection() {
     const divs = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        const element = document.querySelector(
+        const element = grid.querySelector(
           '#E' + (+start[0] + i) + (+start[1] + j)
         );
         divs.push(element);
       }
     }
-
-    divs.forEach((div, i) => {
-      if (state.structures[1][i] == 1) {
-        if (div) div.style.backgroundColor = 'white';
+    if (state.structures.length != 0) {
+      divs.forEach((div, i) => {
+        if (state.structures[0][i] == 1) {
+          if (div) div.style.backgroundColor = 'white';
+          if (e.type == 'click') {
+            div.setAttribute('data-permanent', 'true');
+            state.grid[div.id[1]][div.id[2]] = 1;
+          }
+        }
+      });
+      if (e.type == 'click') {
+        state.structures.shift();
       }
-    });
+    } else {
+      renderMainScreen();
+    }
   }
   function unhighlight() {
     const divs = [...grid.children];
     divs.forEach((div) => {
-      div.style.backgroundColor = 'rgb(97, 97, 197)';
+      if (!div.getAttribute('data-permanent'))
+        div.style.backgroundColor = 'rgb(97, 97, 197)';
     });
   }
 }
-
-
 
 export default shipSelection;

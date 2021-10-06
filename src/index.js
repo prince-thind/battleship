@@ -3,10 +3,13 @@ import './components/styles/ship-selection.css'
 import './components/styles/start-menu.css'
 import shipSelection from './components/modules/ship-selection';
 import state from './components/modules/state';
+import main from './components/modules/main';
 
 const shipForm=document.querySelector('#ship-form');
 const menuSection=document.querySelector('#start-menu');
 const shipSelectionSection=document.querySelector('#ship-selection-menu');
+const mainGameScreen=document.querySelector('#main-game');
+
 
 shipForm.addEventListener('submit',storeShipInput);
 
@@ -22,3 +25,11 @@ function renderSelectionScreen() {
     shipSelectionSection.classList.toggle('hidden');
     shipSelection();
 }
+
+function renderMainScreen() {
+    shipSelectionSection.classList.toggle('hidden');
+    mainGameScreen.classList.toggle('hidden');
+    main();
+}
+
+export {renderMainScreen}

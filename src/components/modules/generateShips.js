@@ -7,7 +7,7 @@ function generateShips(n) {
     }
   
     function createRandomShip() {
-      const random = Math.trunc(Math.random() * 5);
+      const random = Math.trunc(Math.random() *4);
       switch (random) {
         case 0:
           return [
@@ -70,17 +70,17 @@ function generateShips(n) {
           return [
             '1',
             '0',
+            '0',
+            '0',
             '1',
             '0',
             '0',
             '0',
+            '1',
             '0',
             '0',
             '0',
-            '0',
-            '0',
-            '0',
-            '0',
+            '1',
             '0',
             '0',
             '0',

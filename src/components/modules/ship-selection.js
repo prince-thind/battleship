@@ -4,22 +4,26 @@ import { renderMainScreen } from '../..';
 
 function shipSelection() {
   const grid = document.querySelector('#selection-grid');
-  generateShips(state.ships);
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      const element = document.createElement('div');
-      element.className = 'selection-element';
-      element.id = 'E' + i + j;
-      element.addEventListener('mouseenter', highlight);
-      element.addEventListener('click', highlight);
-      element.addEventListener('mouseleave', unhighlight);
-      grid.append(element);
+  state.structures = generateShips(state.ships);
+  createGrid();
+
+  function createGrid() {
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        const element = document.createElement('div');
+        element.className = 'selection-element';
+        element.id = 'E' + i + j;
+        element.addEventListener('mouseenter', handleMove);
+        element.addEventListener('click', handleMove);
+        element.addEventListener('mouseleave', unhighlight);
+        grid.append(element);
+      }
     }
   }
 
-  function highlight(e) {
+  function handleMove(e) {
     const target = e.target;
-    const start = target.id.split('E')[1];
+    const start = target.id.slice(1);
     const divs = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
@@ -30,21 +34,32 @@ function shipSelection() {
       }
     }
     if (state.structures.length != 0) {
-      divs.forEach((div, i) => {
-        if (state.structures[0][i] == 1) {
-          if (div) div.style.backgroundColor = 'white';
-          if (e.type == 'click') {
-            div.setAttribute('data-permanent', 'true');
-            state.grid[div.id[1]][div.id[2]] = 1;
-          }
-        }
-      });
       if (e.type == 'click') {
-        state.structures.shift();
+        storeShip(divs);
+      } else {
+        highLight(divs);
       }
     } else {
       renderMainScreen();
     }
+  }
+  
+  function storeShip(divs) {
+    divs.forEach((div, i) => {
+      if (state.structures[0][i] == 1) {
+        div.setAttribute('data-permanent', 'true');
+        state.grid[div.id[1]][div.id[2]] = 1;
+      }
+    });
+    state.structures.shift();
+  }
+
+  function highLight(divs) {
+    divs.forEach((div, i) => {
+      if (state.structures[0][i] == 1) {
+        if (div) div.style.backgroundColor = 'white';
+      }
+    });
   }
   function unhighlight() {
     const divs = [...grid.children];

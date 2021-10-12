@@ -6,12 +6,12 @@ function main() {
 }
 
 function geneRateBattleGround(state) {
-  battleGround.player = getPlayerGrid(state.grid);
-  battleGround.enemy = getEnemyGrid(9);
+  battleGround.player = getGrid(state.grid);
+  battleGround.enemy = getGrid(state.enemyGrid);
   battleGround.playerShips = state.ships;
   battleGround.enemyShips = state.ships;
 }
-function getPlayerGrid(arr) {
+function getGrid(arr) {
   const res = getEmptygrid(9);
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
@@ -22,14 +22,7 @@ function getPlayerGrid(arr) {
   }
   return res;
 }
-function getEnemyGrid(num) {
-  const grid = getEmptygrid(num);
-  addEnemyShips(grid);
-  return grid;
-}
-function addEnemyShips(grid) {
-  return grid;
-}
+
 function getEmptygrid(num) {
   const res = [];
   for (let i = 0; i < num; i++) {

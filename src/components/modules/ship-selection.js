@@ -5,7 +5,30 @@ import { renderMainScreen } from '../..';
 function shipSelection() {
   const grid = document.querySelector('#selection-grid');
   state.structures = generateShips(state.ships);
+  state.enemyStrucutures = generateShips(state.ships);
   createGrid();
+  createEnemyGrid();
+
+  
+  function createEnemyGrid() {
+    for (let k = 0; k < state.enemyStrucutures.length; k++) {
+      const random =
+        '' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
+      const divs = [];
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+          const element = {};
+          element.id = '' + (+random[0] + i) + (+random[1] + j);
+          divs.push(element);
+        }
+      }
+      divs.forEach((div, i) => {
+        if (state.enemyStrucutures[0][i] == 1) {
+          state.enemyGrid[div.id[0]][div.id[1]] = 1;
+        }
+      });
+    }
+  }
 
   function createGrid() {
     for (let i = 0; i < 9; i++) {
@@ -59,7 +82,7 @@ function shipSelection() {
     function isLegalMove(divs) {
       let result = true;
       divs.forEach((div, i) => {
-        if (state.structures[0][i] == 1 ) {
+        if (state.structures[0][i] == 1) {
           if (state.grid[div.id[1]][div.id[2]] == 1) {
             result = false;
           }

@@ -2,6 +2,8 @@ const state = {
   ships: 0,
   structures: [],
   grid: generateGrid(),
+  enemyGrid:generateGrid(),
+  enemyStrucutures:[],
 };
 
 function generateGrid() {

@@ -43,8 +43,11 @@ function shipSelection() {
       renderMainScreen();
     }
   }
-  
+
   function storeShip(divs) {
+    const move = isLegalMove(divs);
+    if (!move) return;
+
     divs.forEach((div, i) => {
       if (state.structures[0][i] == 1) {
         div.setAttribute('data-permanent', 'true');
@@ -52,6 +55,18 @@ function shipSelection() {
       }
     });
     state.structures.shift();
+
+    function isLegalMove(divs) {
+      let result = true;
+      divs.forEach((div, i) => {
+        if (state.structures[0][i] == 1) {
+          if (state.grid[div.id[1]][div.id[2]] == 1) {
+            result = false;
+          }
+        }
+      });
+      return result;
+    }
   }
 
   function highLight(divs) {

@@ -57,14 +57,15 @@ function shipSelection() {
     state.structures.shift();
 
     function isLegalMove(divs) {
+      let result = true;
       divs.forEach((div, i) => {
-        if (state.structures[0][i] == 1) {
+        if (state.structures[0][i] == 1 ) {
           if (state.grid[div.id[1]][div.id[2]] == 1) {
-            return false;
+            result = false;
           }
         }
       });
-      return true;
+      return result;
     }
   }
 

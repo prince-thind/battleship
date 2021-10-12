@@ -15,4 +15,5 @@ function generateGrid() {
   }
   return arr;
 }
+
 export default state;

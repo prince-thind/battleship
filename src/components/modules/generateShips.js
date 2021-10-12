@@ -1,92 +1,26 @@
-import state from "./state";
 function generateShips(n) {
-    state.structures = [];
-    for (let i = 0; i < n; i++) {
-      const arr = createRandomShip();
-      state.structures.push(arr);
+  const res = [];
+  for (let i = 0; i < n; i++) {
+    const arr = createRandomShip();
+    res.push(arr);
+  }
+  return res;
+}
+
+function createRandomShip() {
+  const random = Math.trunc(Math.random() * 3 + 2);
+  const arr = Array(16).fill(0);
+  if (Math.random() * 2 > 1) {
+    for (let i = 0; i < random; i++) {
+      arr[i] = 1;
     }
-  
-    function createRandomShip() {
-      const random = Math.trunc(Math.random() *4);
-      switch (random) {
-        case 0:
-          return [
-            '1',
-            '1',
-            '1',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-          ];
-        case 1:
-          return [
-            '1',
-            '1',
-            '1',
-            '1',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-          ];
-        case 2:
-          return [
-            '1',
-            '0',
-            '0',
-            '0',
-            '1',
-            '0',
-            '0',
-            '0',
-            '1',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-            '0',
-          ];
-        case 3:
-          return [
-            '1',
-            '0',
-            '0',
-            '0',
-            '1',
-            '0',
-            '0',
-            '0',
-            '1',
-            '0',
-            '0',
-            '0',
-            '1',
-            '0',
-            '0',
-            '0',
-          ];
-      }
+  }
+  else{
+    for (let i = 0,j=0; i < random; i++,j+=4) {
+      arr[j] = 1;
     }
   }
 
-  export default generateShips;
+  return arr;
+}
+export default generateShips;

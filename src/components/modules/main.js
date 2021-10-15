@@ -1,8 +1,9 @@
 import state from './state';
-import battleGround from './battleground';
+import {battleGround, render} from './battleground';
+
 function main() {
   geneRateBattleGround(state);
-  console.log(battleGround);
+  render();
 }
 
 function geneRateBattleGround(state) {

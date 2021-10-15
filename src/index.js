@@ -1,6 +1,7 @@
 import './style.css'
 import './components/styles/ship-selection.css'
 import './components/styles/start-menu.css'
+import './components/styles/main-game.css'
 import state from './components/modules/state';
 import shipSelection from './components/modules/ship-selection';
 import main from './components/modules/main';

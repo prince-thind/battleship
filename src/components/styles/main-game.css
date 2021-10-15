@@ -1,0 +1,21 @@
+.fields{
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+    margin:1rem 0; 
+}
+.field{
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+}
+.field-element{
+    background-color: blue;
+    border:1px solid black;
+    padding:1rem;
+}
+.ship-part{
+    background-color: white;
+}
+.ship-part{
+    background-color: red;
+}

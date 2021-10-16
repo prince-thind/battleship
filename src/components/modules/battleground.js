@@ -40,6 +40,10 @@ function generateDOMGrid(node, arr, type) {
         element.addEventListener('click', playRound);
         element.setAttribute('data-tag', i + '' + j);
       }
+      else{
+        element.setAttribute('data-player', i + '' + j);
+
+      }
 
       node.append(element);
     }

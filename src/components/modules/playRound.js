@@ -15,8 +15,10 @@ async function playRound(e) {
     render();
     return;
   }
+  render();
   await playEnemyRound();
   render();
+  
 }
 
 function updateWinner() {

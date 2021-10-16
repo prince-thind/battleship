@@ -18,7 +18,10 @@ function render() {
   enemyGrid.innerHTML = '';
   generateDOMGrid(playerGrid, battleGround.player);
   generateDOMGrid(enemyGrid, battleGround.enemy, 'enemy');
-  console.log(battleGround);
+  if(battleGround.winner){
+    gameHeading.textContent=`${battleGround.winner} Won!`
+  }
+  console.log(battleGround)
 }
 
 function generateDOMGrid(node, arr, type) {

@@ -1,7 +1,7 @@
 import { battleGround, render } from '../state/battleground';
 import playEnemyRound from './playEnemyRound';
 
-async function playRound(e) {
+function playRound(e) {
   if (battleGround.winner) {
     render();
     return;
@@ -15,8 +15,7 @@ async function playRound(e) {
     render();
     return;
   }
-  render();
-  await playEnemyRound();
+  playEnemyRound();
   render();
   
 }

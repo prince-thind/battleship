@@ -83,6 +83,10 @@ function deploy() {
       let result = true;
       divs.forEach((div, i) => {
         if (initState.structures[0][i] == 1) {
+          if(!div){
+            result=false;
+            return result;
+          }
           if (initState.grid[div.id[1]][div.id[2]] == 1) {
             result = false;
           }

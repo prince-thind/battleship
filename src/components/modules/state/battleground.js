@@ -1,10 +1,8 @@
-import playRound from './playRound';
+import playRound from '../main/playRound';
 
 const battleGround = {
   player: [],
   enemy: [],
-  playerShips: 0,
-  enemyShips: 0,
   winner: null,
 };
 
@@ -21,7 +19,6 @@ function render() {
   if(battleGround.winner){
     gameHeading.textContent=`${battleGround.winner} Won!`
   }
-  console.log(battleGround)
 }
 
 function generateDOMGrid(node, arr, type) {
@@ -37,6 +34,7 @@ function generateDOMGrid(node, arr, type) {
       }
 
       if (type == 'enemy') {
+        // element.classList.add('enemy-hidden');
         element.addEventListener('click', playRound);
         element.setAttribute('data-tag', i + '' + j);
       }

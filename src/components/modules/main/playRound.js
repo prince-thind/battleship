@@ -1,4 +1,4 @@
-import { battleGround, render } from './battleground';
+import { battleGround, render } from '../state/battleground';
 import playEnemyRound from './playEnemyRound';
 
 async function playRound(e) {

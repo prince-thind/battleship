@@ -1,4 +1,4 @@
-import { battleGround } from './battleground';
+import { battleGround } from '../state/battleground';
 
 async function playEnemyRound() {
   await loadWaitScreen(2);

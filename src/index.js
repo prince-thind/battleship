@@ -1,35 +1,32 @@
-import './style.css'
-import './components/styles/ship-selection.css'
-import './components/styles/start-menu.css'
-import './components/styles/main-game.css'
-import state from './components/modules/state';
-import shipSelection from './components/modules/ship-selection';
-import main from './components/modules/main';
+import './components/styles/style';
+import initState from './components/modules/state/initState';
+import deploy from './components/modules/ship-selection/deploy';
+import mainGame from './components/modules/main/mainGame';
 
 const shipForm=document.querySelector('#ship-form');
 const menuSection=document.querySelector('#start-menu');
-const shipSelectionSection=document.querySelector('#ship-selection-menu');
-const mainGameScreen=document.querySelector('#main-game');
+const deploySection=document.querySelector('#deploy-menu');
+const mainGameGameScreen=document.querySelector('#main-game');
 
 shipForm.addEventListener('submit',storeShipInput);
 
 function storeShipInput(e){
     e.preventDefault();
     const shipNumber=e.target.ships.value;
-    state.ships=shipNumber;
-    renderSelectionScreen();
+    initState.ships=shipNumber;
+    renderDeployScreen();
 }
 
-function renderSelectionScreen() {
+function renderDeployScreen() {
     menuSection.classList.toggle('hidden');
-    shipSelectionSection.classList.toggle('hidden');
-    shipSelection();
+    deploySection.classList.toggle('hidden');
+    deploy();
 }
 
-function renderMainScreen() {
-    shipSelectionSection.classList.toggle('hidden');
-    mainGameScreen.classList.toggle('hidden');
-    main();
+function rendermainGameScreen() {
+    deploySection.classList.toggle('hidden');
+    mainGameGameScreen.classList.toggle('hidden');
+    mainGame();
 }
 
-export {renderMainScreen}
+export {rendermainGameScreen}

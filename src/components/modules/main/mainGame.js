@@ -1,16 +1,16 @@
-import state from './state';
-import {battleGround, render} from './battleground';
+import initState from '../state/initState';
+import {battleGround, render} from '../state/battleground';
 
-function main() {
-  geneRateBattleGround(state);
+function mainGame() {
+  geneRateBattleGround(initState);
   render();
 }
 
-function geneRateBattleGround(state) {
-  battleGround.player = getGrid(state.grid);
-  battleGround.enemy = getGrid(state.enemyGrid);
-  battleGround.playerShips = state.ships;
-  battleGround.enemyShips = state.ships;
+function geneRateBattleGround(initState) {
+  battleGround.player = getGrid(initState.grid);
+  battleGround.enemy = getGrid(initState.enemyGrid);
+  battleGround.playerShips = initState.ships;
+  battleGround.enemyShips = initState.ships;
 }
 function getGrid(arr) {
   const res = getEmptygrid(9);
@@ -38,4 +38,4 @@ function getEmptygrid(num) {
   }
   return res;
 }
-export default main;
+export default mainGame;

@@ -18,7 +18,7 @@ body {
   padding: 0.5rem;
   border: 1px solid gray;
 }
-.main {
+.mainGame {
   flex: 1;
 }
 .footer {

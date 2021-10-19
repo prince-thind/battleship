@@ -19,3 +19,6 @@
 .ship-hit{
     background-color: red;
 }
+.enemy-hidden{
+    background-color: yellow;
+}

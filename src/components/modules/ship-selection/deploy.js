@@ -1,17 +1,17 @@
-import state from './state';
-import generateShips from './generateShips';
-import { renderMainScreen } from '../..';
+import initState from '../state/initState';
+import generateShips from '../ship-selection/generateShips';
+import { rendermainGameScreen } from '../../../index';
 
-function shipSelection() {
+function deploy() {
   const grid = document.querySelector('#selection-grid');
-  state.structures = generateShips(state.ships);
-  state.enemyStrucutures = generateShips(state.ships);
+  initState.structures = generateShips(initState.ships);
+  initState.enemyStrucutures = generateShips(initState.ships);
   createGrid();
   createEnemyGrid();
 
   
   function createEnemyGrid() {
-    for (let k = 0; k < state.enemyStrucutures.length; k++) {
+    for (let k = 0; k < initState.enemyStrucutures.length; k++) {
       const random =
         '' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
       const divs = [];
@@ -23,8 +23,8 @@ function shipSelection() {
         }
       }
       divs.forEach((div, i) => {
-        if (state.enemyStrucutures[0][i] == 1) {
-          state.enemyGrid[div.id[0]][div.id[1]] = 1;
+        if (initState.enemyStrucutures[0][i] == 1) {
+          initState.enemyGrid[div.id[0]][div.id[1]] = 1;
         }
       });
     }
@@ -56,14 +56,14 @@ function shipSelection() {
         divs.push(element);
       }
     }
-    if (state.structures.length != 0) {
+    if (initState.structures.length != 0) {
       if (e.type == 'click') {
         storeShip(divs);
       } else {
         highLight(divs);
       }
     } else {
-      renderMainScreen();
+      rendermainGameScreen();
     }
   }
 
@@ -72,18 +72,18 @@ function shipSelection() {
     if (!move) return;
 
     divs.forEach((div, i) => {
-      if (state.structures[0][i] == 1) {
+      if (initState.structures[0][i] == 1) {
         div.setAttribute('data-permanent', 'true');
-        state.grid[div.id[1]][div.id[2]] = 1;
+        initState.grid[div.id[1]][div.id[2]] = 1;
       }
     });
-    state.structures.shift();
+    initState.structures.shift();
 
     function isLegalMove(divs) {
       let result = true;
       divs.forEach((div, i) => {
-        if (state.structures[0][i] == 1) {
-          if (state.grid[div.id[1]][div.id[2]] == 1) {
+        if (initState.structures[0][i] == 1) {
+          if (initState.grid[div.id[1]][div.id[2]] == 1) {
             result = false;
           }
         }
@@ -94,7 +94,7 @@ function shipSelection() {
 
   function highLight(divs) {
     divs.forEach((div, i) => {
-      if (state.structures[0][i] == 1) {
+      if (initState.structures[0][i] == 1) {
         if (div) div.style.backgroundColor = 'white';
       }
     });
@@ -108,4 +108,4 @@ function shipSelection() {
   }
 }
 
-export default shipSelection;
+export default deploy;

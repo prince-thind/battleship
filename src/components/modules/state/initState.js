@@ -1,9 +1,10 @@
-const state = {
+const initState = {
   ships: 0,
   structures: [],
+  enemyStrucutures:[],
   grid: generateGrid(),
   enemyGrid:generateGrid(),
-  enemyStrucutures:[],
+  
 };
 
 function generateGrid() {
@@ -18,4 +19,4 @@ function generateGrid() {
   return arr;
 }
 
-export default state;
+export default initState;

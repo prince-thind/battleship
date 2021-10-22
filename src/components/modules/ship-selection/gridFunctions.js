@@ -89,7 +89,7 @@ function createGrid(grid) {
   function highLight(divs) {
     divs.forEach((div, i) => {
       if (initState.structures[0][i] == 1) {
-        if (div) div.style.backgroundColor = 'white';
+        if (div) div.classList.add('highlight');
       }
     });
   }
@@ -97,7 +97,7 @@ function createGrid(grid) {
     const divs = [...grid.children];
     divs.forEach((div) => {
       if (!div.getAttribute('data-permanent'))
-        div.style.backgroundColor = 'rgb(97, 97, 197)';
+        div.classList.remove('highlight');
     });
   }
 }

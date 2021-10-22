@@ -4,11 +4,18 @@
 .selection-grid{
     display: grid;
     grid-template-columns: repeat(9,1fr);
-    width:50%;
+    height: 75vmin;
+    width: 75vmin;
     margin:2rem auto;
 }
 .selection-element{
-    background-color: rgb(97, 97, 197);
+    background: radial-gradient(hsl(240, 50%, 50%),hsl(240, 50%, 20%));
     border:2px solid black;
-    aspect-ratio: 1;
+    /* aspect-ratio: 1; */
+}
+
+/* js classes */
+.highlight{
+    background: radial-gradient(hsl(240, 50%, 90%),hsl(240, 50%, 80%));
+
 }

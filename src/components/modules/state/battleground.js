@@ -37,6 +37,10 @@ function generateDOMGrid(node, arr, type) {
         // element.classList.add('enemy-hidden');
         element.addEventListener('click', playRound);
         element.setAttribute('data-tag', i + '' + j);
+        element.classList.remove('ship-part');
+        if (arr[i][j].hit && arr[i][j].empty) {
+          element.classList.add('empty-hit');
+        }
       }
       else{
         element.setAttribute('data-player', i + '' + j);

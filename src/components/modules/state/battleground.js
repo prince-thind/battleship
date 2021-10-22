@@ -18,11 +18,15 @@ function render() {
   generateDOMGrid(playerGrid, battleGround.player);
   generateDOMGrid(enemyGrid, battleGround.enemy, 'enemy');
   if(battleGround.winner){
-    gameHeading.textContent=`${battleGround.winner} Won!`
+    gameHeading.textContent=`${battleGround.winner} Won!`;
+    unhideEnemy(enemyGrid);
   }
   renderInfo();
 }
-
+function unhideEnemy(enemyGrid){
+    const hiddenDivs=[...enemyGrid.querySelectorAll('.enemy-hidden')];
+    hiddenDivs.forEach(div=>div.classList.remove('enemy-hidden'))
+}
 function generateDOMGrid(node, arr, type) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
@@ -42,7 +46,10 @@ function generateDOMGrid(node, arr, type) {
         // element.classList.add('enemy-hidden');
         element.addEventListener('click', playRound);
         element.setAttribute('data-tag', i + '' + j);
-        element.classList.remove('ship-part');
+        if(arr[i][j].empty==0){
+          element.classList.add('enemy-hidden');
+        }
+        
        
       }
       else{
@@ -53,6 +60,8 @@ function generateDOMGrid(node, arr, type) {
       node.append(element);
     }
   }
+
+  
 }
 
 export { battleGround, render };

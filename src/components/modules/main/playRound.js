@@ -8,30 +8,30 @@ function playRound(e) {
   }
   const target = e.target;
   const [i, j] = target.getAttribute('data-tag').split('');
-  // if (!battleGround.enemy[i][j].empty) {
-    battleGround.enemy[i][j].hit = true;
-  // }
-  if (updateWinner()) {
+  const hitStatus=battleGround.enemy[i][j].hit;
+  battleGround.enemy[i][j].hit = true;
+
+  if (updateWinner() || hitStatus) {
     render();
     return;
   }
+
   playEnemyRound();
   render();
-  
 }
 
 function updateWinner() {
   const playerResult = checkALL(battleGround.enemy);
-  const enemyResult=checkALL(battleGround.player);
+  const enemyResult = checkALL(battleGround.player);
 
-  if(playerResult){
-    battleGround.winner='Player';
+  if (playerResult) {
+    battleGround.winner = 'Player';
   }
-  if(enemyResult){
-    battleGround.winner='Enemy';
+  if (enemyResult) {
+    battleGround.winner = 'Enemy';
   }
 
-  return playerResult||enemyResult||null;
+  return playerResult || enemyResult || null;
 
   function checkALL(grid) {
     let result = true;

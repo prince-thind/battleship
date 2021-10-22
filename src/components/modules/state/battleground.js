@@ -12,7 +12,7 @@ function render() {
   const playerGrid = document.querySelector('#player-field');
   const enemyGrid = document.querySelector('#enemy-field');
 
-  gameHeading.textContent = 'Player Turn';
+  gameHeading.textContent = 'Strike the Enemy!';
   playerGrid.innerHTML = '';
   enemyGrid.innerHTML = '';
   generateDOMGrid(playerGrid, battleGround.player);

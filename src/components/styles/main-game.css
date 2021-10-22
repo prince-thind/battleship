@@ -25,7 +25,6 @@
 }
 .enemy-hidden {
   background: radial-gradient(hsl(240, 100%, 50%), hsl(240, 50%, 20%));
-
 }
 .ship-hit {
   background: radial-gradient(hsl(0, 49%, 50%), hsl(56, 50%, 50%));
@@ -48,5 +47,11 @@
 @media only screen and (max-width: 760px) {
   .field {
     height: 45vh;
+    margin: auto;
+
+    /* width: 45vh; */
+  }
+  .fields {
+    flex-direction: column;
   }
 }

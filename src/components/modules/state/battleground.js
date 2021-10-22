@@ -23,6 +23,7 @@ function render() {
   }
   renderInfo();
 }
+
 function unhideEnemy(enemyGrid){
     const hiddenDivs=[...enemyGrid.querySelectorAll('.enemy-hidden')];
     hiddenDivs.forEach(div=>div.classList.remove('enemy-hidden'))

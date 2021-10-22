@@ -17,6 +17,7 @@ function playRound(e) {
   }
 
   playEnemyRound();
+  updateWinner();
   render();
 }
 

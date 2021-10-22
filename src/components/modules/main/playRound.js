@@ -25,10 +25,10 @@ function updateWinner() {
   const enemyResult=checkALL(battleGround.player);
 
   if(playerResult){
-    battleGround.winner='player';
+    battleGround.winner='Player';
   }
   if(enemyResult){
-    battleGround.winner='enemy';
+    battleGround.winner='Enemy';
   }
 
   return playerResult||enemyResult||null;

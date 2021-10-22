@@ -1,4 +1,5 @@
 import playRound from '../main/playRound';
+import renderInfo from './renderInfo';
 
 const battleGround = {
   player: [],
@@ -19,6 +20,7 @@ function render() {
   if(battleGround.winner){
     gameHeading.textContent=`${battleGround.winner} Won!`
   }
+  renderInfo();
 }
 
 function generateDOMGrid(node, arr, type) {

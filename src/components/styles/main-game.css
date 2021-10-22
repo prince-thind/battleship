@@ -11,8 +11,8 @@
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   /* width: 100%; */
-  height: 75vh; 
-  
+  height: 75vh;
+
   aspect-ratio: 1;
 }
 .field-element {
@@ -27,17 +27,23 @@
   background-color: yellow;
 }
 .ship-hit {
-    background: radial-gradient(hsl(0, 49%, 50%), hsl(56, 50%, 50%));
-
+  background: radial-gradient(hsl(0, 49%, 50%), hsl(56, 50%, 50%));
 }
-.empty-hit{
-    background: radial-gradient(hsl(0, 0%, 25%), hsl(0, 0%, 5%));
-
+.empty-hit {
+  background: radial-gradient(hsl(0, 0%, 25%), hsl(0, 0%, 5%));
 }
-
-
-@media only screen and (max-width:760px){
-    .field{
-        height: 45vh;
-    }
+.game-info {
+  border: 5px solid black;
+  padding: 1rem;
+  width: fit-content;
+  margin: auto;
+  background: radial-gradient(hsl(240, 50%, 90%), hsl(240, 50%, 80%));
+  color: black;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+@media only screen and (max-width: 760px) {
+  .field {
+    height: 45vh;
+  }
 }

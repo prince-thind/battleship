@@ -1,5 +1,5 @@
 import initState from '../state/initState';
-import generateShips from '../ship-selection/generateShips';
+import generateShips from './generateShips';
 import { createGrid, createEnemyGrid } from './createGrid';
 
 function deploy() {

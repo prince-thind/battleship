@@ -2,6 +2,7 @@ import './components/styles/style';
 import initState from './components/modules/state/initState';
 import deploy from './components/modules/ship-selection/deploy';
 import mainGame from './components/modules/main/mainGame';
+import '../src/components/modules/misc/cheat'
 
 const shipForm=document.querySelector('#ship-form');
 const menuSection=document.querySelector('#start-menu');

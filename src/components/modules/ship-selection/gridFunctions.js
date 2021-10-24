@@ -2,20 +2,18 @@ import { rendermainGameScreen } from '../../../index';
 import initState from '../state/initState';
 
 function createEnemyGrid() {
-  for (let k = 0; k < initState.enemyStrucutures.length; k++) {
-    const random =
-      '' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
-    const divs = [];
+  for (const enemyStructure of initState.enemyStrucutures) {
+    const random ='' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
+    const ids = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        const element = {};
-        element.id = '' + (+random[0] + i) + (+random[1] + j);
-        divs.push(element);
+        const id = '' + (+random[0] + i) + (+random[1] + j);
+        ids.push(id);
       }
     }
-    divs.forEach((div, i) => {
-      if (initState.enemyStrucutures[0][i] == 1) {
-        initState.enemyGrid[div.id[0]][div.id[1]] = 1;
+    ids.forEach((id, i) => {
+      if (enemyStructure[i] == 1) {
+        initState.enemyGrid[id[0]][id[1]] = 1;
       }
     });
   }

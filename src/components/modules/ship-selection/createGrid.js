@@ -3,7 +3,8 @@ import initState from '../state/initState';
 
 function createEnemyGrid() {
   for (const enemyStructure of initState.enemyStrucutures) {
-    const random ='' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
+    const random =
+      '' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
     const ids = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {

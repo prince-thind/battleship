@@ -1,6 +1,6 @@
 import initState from '../state/initState';
 import generateShips from '../ship-selection/generateShips';
-import { createGrid, createEnemyGrid } from './gridFunctions';
+import { createGrid, createEnemyGrid } from './createGrid';
 
 function deploy() {
   const grid = document.querySelector('#selection-grid');

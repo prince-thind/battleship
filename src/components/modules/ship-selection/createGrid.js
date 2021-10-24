@@ -1,25 +1,6 @@
 import { rendermainGameScreen } from '../../../index';
 import initState from '../state/initState';
 
-function createEnemyGrid() {
-  for (const enemyStructure of initState.enemyStrucutures) {
-    const random =
-      '' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
-    const ids = [];
-    for (let i = 0; i < 4; i++) {
-      for (let j = 0; j < 4; j++) {
-        const id = '' + (+random[0] + i) + (+random[1] + j);
-        ids.push(id);
-      }
-    }
-    ids.forEach((id, i) => {
-      if (enemyStructure[i] == 1) {
-        initState.enemyGrid[id[0]][id[1]] = 1;
-      }
-    });
-  }
-}
-
 function createGrid(grid) {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
@@ -45,13 +26,13 @@ function createGrid(grid) {
         divs.push(element);
       }
     }
-    if (initState.structures.length != 0) {
-      if (e.type == 'click') {
-        storeShip(divs);
-      } else {
-        highLight(divs);
-      }
+    if (e.type == 'click') {
+      storeShip(divs);
     } else {
+      highLight(divs);
+    }
+
+    if (initState.structures.length == 0) {
       rendermainGameScreen();
     }
   }
@@ -97,6 +78,25 @@ function createGrid(grid) {
     divs.forEach((div) => {
       if (!div.getAttribute('data-permanent'))
         div.classList.remove('highlight');
+    });
+  }
+}
+
+function createEnemyGrid() {
+  for (const enemyStructure of initState.enemyStrucutures) {
+    const random =
+      '' + Math.trunc(Math.random() * 5) + Math.trunc(Math.random() * 5);
+    const ids = [];
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        const id = '' + (+random[0] + i) + (+random[1] + j);
+        ids.push(id);
+      }
+    }
+    ids.forEach((id, i) => {
+      if (enemyStructure[i] == 1) {
+        initState.enemyGrid[id[0]][id[1]] = 1;
+      }
     });
   }
 }

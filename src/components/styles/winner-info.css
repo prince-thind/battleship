@@ -1,0 +1,33 @@
+.winner-screen{
+    position: fixed;
+    width:100%;
+    top:0;
+    bottom: 0;
+    background: hsla(0, 0%, 25%,70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.winner-content{
+    padding:2rem;
+    margin:auto;
+    background: radial-gradient(hsl(0, 0%, 25%),black);
+    width: fit-content;
+    border:2px solid black;
+    font-size: 1.2rem;
+
+}
+.winner-info{
+    margin-bottom:1rem;
+}
+.reload{
+    padding:0.5rem;
+    font-size: 1.2rem;
+    background: radial-gradient(hsl(240, 50%, 50%),hsl(240, 50%, 25%));
+    color:white;
+    border-radius: 1rem;
+
+}
+.reload:hover{
+    cursor:pointer;
+}

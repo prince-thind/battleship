@@ -3,7 +3,7 @@
   margin: 0;
 }
 .hidden{
-  display: none;
+  display: none !important;
 }
 body {
   color: white;
@@ -18,7 +18,7 @@ body {
   padding: 0.5rem;
   border: 1px solid gray;
 }
-.mainGame {
+.main {
   flex: 1;
 }
 .footer {

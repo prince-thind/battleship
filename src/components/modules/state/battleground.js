@@ -8,18 +8,20 @@ const battleGround = {
 };
 
 function render() {
-  const gameHeading = document.querySelector('#game-heading');
+  // const gameHeading = document.querySelector('#game-heading');
+  const winnerSection = document.querySelector('#winner-screen');
   const playerGrid = document.querySelector('#player-field');
   const enemyGrid = document.querySelector('#enemy-field');
 
-  gameHeading.textContent = 'Strike the Enemy!';
+  // gameHeading.textContent = 'Strike the Enemy!';
   playerGrid.innerHTML = '';
   enemyGrid.innerHTML = '';
   generateDOMGrid(playerGrid, battleGround.player);
   generateDOMGrid(enemyGrid, battleGround.enemy, 'enemy');
   if(battleGround.winner){
-    gameHeading.textContent=`${battleGround.winner} Won!`;
+    // gameHeading.textContent=`${battleGround.winner} Won!`;
     unhideEnemy(enemyGrid);
+    renderWinnerScreen(winnerSection,battleGround.winner)
   }
   renderInfo();
 }
@@ -27,6 +29,17 @@ function render() {
 function unhideEnemy(enemyGrid){
     const hiddenDivs=[...enemyGrid.querySelectorAll('.enemy-hidden')];
     hiddenDivs.forEach(div=>div.classList.remove('enemy-hidden'))
+}
+
+function renderWinnerScreen(section,winner){
+  section.classList.toggle('hidden');
+  const info=section.querySelector('#winner-info');
+  const reload=section.querySelector('#reload');
+  info.textContent=`${winner} has Won!`;
+  reload.addEventListener('click',(e)=>{
+    e.preventDefault();
+    location.reload();
+  })
 }
 
 function generateDOMGrid(node, arr, type) {

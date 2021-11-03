@@ -46,13 +46,17 @@ function appendUnique(target, source) {
 function getAdjacentNumbers(number) {
   const number1 = number[0];
   const number2 = number[1];
-  const res = Array(4).fill(null);
-  res[0]=+number1-1+''+number2;
-  res[1]=+number1+1+''+number2;
-  res[2]=+number1+''+(+number2-1);
-  res[3]=+number1+''+(+number2+1);
+  let res = Array(4).fill(null);
+  res[0] = +number1 - 1 + '' + number2;
+  res[1] = +number1 + 1 + '' + number2;
+  res[2] = +number1 + '' + (+number2 - 1);
+  res[3] = +number1 + '' + (+number2 + 1);
+  res = res.map((number) => {
+    if (number.length > 2) return null;
+    if (number[0] > 8 || number[1] > 8) return null;
+    return number;
+  });
   return res;
-
 }
 
 function getRandomMove() {
